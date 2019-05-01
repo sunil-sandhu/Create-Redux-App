@@ -16,7 +16,7 @@ const App = (props) => {
       <button onClick={increment}>increment</button>
       <button onClick={decrement}>decrement</button>
       <button onClick={addFive}>add five</button>
-      <h1>{number}</h1>
+      <h4>{number}</h4>
     </div>
   );
 }

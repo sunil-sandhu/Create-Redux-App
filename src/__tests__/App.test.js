@@ -3,10 +3,23 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import App from '../components/App';
+import configureStore from '../redux/store/configureStore';
+import { Provider } from 'react-redux'
+const store = configureStore();
 
-it('renders without crashing', () => {
-  mount(<App/>)
-});
+
+describe('App', () => {
+  const app = mount(<Provider store={store}><App /></Provider>)
+  
+  it('renders without crashing', () => {
+    mount(<Provider store={store}><App /></Provider>)
+  });
+
+  it('renders the title', () => {
+    expect(app.find('h2').text()).toEqual('Our messages reducer is working')
+  })
+
+})
 
 
 /*
